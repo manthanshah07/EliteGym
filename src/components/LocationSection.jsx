@@ -18,7 +18,7 @@ const LocationSection = () => {
           {/* Map */}
           <div className="w-full lg:w-2/3 h-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative group">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1m3!1d3769.7578278274646!2d72.8299849!3d19.1396265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6238b1b5e31%3A0xb363c4e09cc28267!2sCrystal%20Plaza!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin" 
+              src="https://maps.google.com/maps?q=Crystal+Plaza,+Andheri+West,+Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
@@ -33,7 +33,7 @@ const LocationSection = () => {
           {/* Contact Info */}
           <div className="w-full lg:w-1/3 flex flex-col justify-center space-y-8 bg-black p-8 rounded-2xl border border-white/5">
             <div>
-              <h3 className="text-2xl font-bold uppercase tracking-wider mb-6 text-gold-500">EliteGym HQ</h3>
+              <h3 className="text-2xl font-bold uppercase tracking-wider mb-6 text-gold-500">Apex Fit HQ</h3>
               
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
@@ -73,7 +73,7 @@ const LocationSection = () => {
                   <div>
                     <h4 className="font-bold text-sm uppercase tracking-wider text-gray-400 mb-1">Email</h4>
                     <p className="text-gray-300">
-                      <a href="mailto:contact@elitefitnessclub.in" className="hover:text-gold-500 transition-colors">contact@elitefitnessclub.in</a>
+                      <a href="mailto:contact@apexfit.in" className="hover:text-gold-500 transition-colors">contact@apexfit.in</a>
                     </p>
                   </div>
                 </li>

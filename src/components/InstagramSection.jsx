@@ -18,7 +18,7 @@ const InstagramSection = () => {
           <h2 className="text-3xl font-display font-bold uppercase tracking-tight">
             Follow Our <span className="text-gold-500">Journey</span>
           </h2>
-          <p className="text-gray-400 mt-2">@elitegym_official</p>
+          <p className="text-gray-400 mt-2">@apexfit_official</p>
         </div>
         <button className="mt-4 md:mt-0 flex items-center gap-2 border border-white/20 hover:border-gold-500 hover:text-gold-500 px-6 py-3 rounded-full transition-colors font-medium uppercase tracking-wider text-sm">
           <Instagram size={18} /> Follow Us

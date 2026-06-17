@@ -56,7 +56,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-gold-500 shrink-0 w-5 h-5" />
-                <span className="text-gray-400 text-sm">contact@elitefitnessclub.in</span>
+                <span className="text-gray-400 text-sm">contact@apexfit.in</span>
               </li>
             </ul>
           </div>
@@ -84,7 +84,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm text-center md:text-left">
-            &copy; {new Date().getFullYear()} Elite Gym Premium Club. All rights reserved.
+            &copy; {new Date().getFullYear()} Apex Fit Premium Club. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a>

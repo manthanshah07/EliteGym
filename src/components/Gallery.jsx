@@ -101,10 +101,10 @@ const Gallery = () => {
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
           <div className="relative z-10">
             <h3 className="text-3xl md:text-4xl font-display font-black uppercase tracking-tight text-white mb-4">
-              Ready to Experience Elite Fitness?
+              Ready to Experience Apex Fit?
             </h3>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
-              Book a free gym tour and discover why hundreds of members trust Elite Fitness Club for their transformation journey.
+              Book a free gym tour and discover why hundreds of members trust Apex Fit for their transformation journey.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button 

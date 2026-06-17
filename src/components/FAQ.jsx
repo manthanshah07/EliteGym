@@ -35,7 +35,7 @@ const FAQ = () => {
           <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4">
             Common <span className="text-gold-500">Questions</span>
           </h2>
-          <p className="text-gray-400 text-lg">Everything you need to know about joining Elite Gym.</p>
+          <p className="text-gray-400 text-lg">Everything you need to know about joining Apex Fit.</p>
         </div>
 
         <div className="space-y-4">

@@ -7,7 +7,7 @@ const stories = [
     name: 'Marcus T.',
     duration: '12 Weeks',
     weightChange: 'Lost 15kg Fat',
-    story: 'Elite Gym completely changed my perspective on fitness. The personalized coaching and nutrition plan made all the difference. I not only lost weight but gained incredible strength and confidence.',
+    story: 'Apex Fit completely changed my perspective on fitness. The personalized coaching and nutrition plan made all the difference. I not only lost weight but gained incredible strength and confidence.',
     beforeImg: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop',
     afterImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop'
   },
