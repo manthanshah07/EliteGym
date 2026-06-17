@@ -9,9 +9,8 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzqWrh6oGnPW
  * @returns {Promise<Object>} The response from the script
  */
 export const submitLeadToSheets = async (leadData) => {
-  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxzqWrh6oGnPWi5DiHqjadfGO3AM2zQvNvaPUlCGi8OvhRZ-9p3z52kf0vDeKweVBVjPA/exec') {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
     console.warn('Google Sheets integration is not configured. Please add your script URL.');
-    // In development or if unconfigured, we can still return success to keep the flow working
     return { status: 'success', message: 'Mock success (URL not configured)' };
   }
 
