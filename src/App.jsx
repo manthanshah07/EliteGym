@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import TrustSection from './components/TrustSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import GymShowcase from './components/GymShowcase';
+import Gallery from './components/Gallery';
 import TransformationStories from './components/TransformationStories';
 import MembershipPlans from './components/MembershipPlans';
 import TrainersSection from './components/TrainersSection';
@@ -41,6 +42,7 @@ function App() {
       <TrustSection />
       <WhyChooseUs />
       <GymShowcase />
+      <Gallery />
       <TransformationStories />
       <Services />
       <MembershipPlans />

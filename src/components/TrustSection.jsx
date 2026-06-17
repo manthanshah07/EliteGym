@@ -2,12 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const StatCounter = ({ end, suffix = "", duration = 2000 }) => {
-  const [count, setCount] = useState(0);
+  const isFloat = !Number.isInteger(end);
+  const [count, setCount] = useState(isFloat ? end : 0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView && !isFloat) {
       let startTime;
       const animateCount = (timestamp) => {
         if (!startTime) startTime = timestamp;
@@ -25,7 +26,7 @@ const StatCounter = ({ end, suffix = "", duration = 2000 }) => {
       };
       requestAnimationFrame(animateCount);
     }
-  }, [end, duration, isInView]);
+  }, [end, duration, isInView, isFloat]);
 
   return (
     <span ref={ref} className="text-4xl md:text-5xl font-display font-black text-white">
@@ -39,7 +40,7 @@ const TrustSection = () => {
     { label: "Years Experience", value: 10, suffix: "+" },
     { label: "Active Members", value: 2000, suffix: "+" },
     { label: "Transformations", value: 500, suffix: "+" },
-    { label: "Google Rating", value: 4.8, suffix: "" }
+    { label: "Google Rating", value: 4.8, suffix: "★" }
   ];
 
   return (
