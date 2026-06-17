@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, MessageCircle, Calendar } from 'lucide-react';
 
 const MobileStickyBar = () => {
-  const targetPhone = "919876543210";
+  const targetPhone = "919867137464";
   const whatsappMessage = encodeURIComponent("Hi, I'm interested in the free trial!");
 
   return (

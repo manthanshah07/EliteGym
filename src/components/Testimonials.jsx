@@ -7,7 +7,7 @@ const testimonials = [
     name: 'James Wilson',
     role: 'Member since 2021',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
-    content: 'The facilities here are unmatched. But what really sets ApexFit apart is the community and the trainers who actually care about your progress.',
+    content: 'The facilities here are unmatched. But what really sets Elite Gym apart is the community and the trainers who actually care about your progress.',
     rating: 5
   },
   {

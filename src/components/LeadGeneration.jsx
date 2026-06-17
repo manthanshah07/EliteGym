@@ -13,7 +13,7 @@ const LeadGeneration = () => {
       setIsSubmitting(true);
       
       // Target WhatsApp number (Update this to the gym's actual number)
-      const targetPhone = "919876543210"; 
+      const targetPhone = "919867137464"; 
       const message = `*New VIP Pass Request!* 🚀\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Primary Goal:* ${formData.goal}\n\nI would like to claim my free VIP pass and trial session.`;
       const encodedMessage = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodedMessage}`;
