@@ -1,30 +1,60 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import { submitLeadToSheets } from '../services/googleSheets';
 
 const LeadGeneration = () => {
-  const [formData, setFormData] = useState({ name: '', phone: '', goal: 'Weight Loss' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', phone: '', goal: 'Weight Loss', botField: '' });
+  const [submissionStatus, setSubmissionStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Honeypot validation to prevent basic spam bots
+    if (formData.botField) {
+      setSubmissionStatus('success');
+      return;
+    }
+
+    // Basic Rate Limiting Check (1 minute)
+    const lastSubmission = localStorage.getItem('lastSubmissionTime');
+    const now = Date.now();
+    if (lastSubmission && now - parseInt(lastSubmission) < 60000) {
+      alert('Please wait a moment before submitting again.');
+      return;
+    }
+
     if (formData.name && formData.phone) {
-      setIsSubmitting(true);
+      setSubmissionStatus('submitting');
       
-      // Target WhatsApp number (Update this to the gym's actual number)
       const targetPhone = "919867137464"; 
       const message = `*New VIP Pass Request!* 🚀\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Primary Goal:* ${formData.goal}\n\nI would like to claim my free VIP pass and trial session.`;
       const encodedMessage = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodedMessage}`;
 
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        window.open(whatsappUrl, '_blank');
-      }, 800);
+      try {
+        // Step 1: Send data to Google Sheets
+        await submitLeadToSheets({
+          name: formData.name,
+          phone: formData.phone,
+          goal: formData.goal,
+          plan: 'VIP Pass' // Default Membership Interest
+        });
+        
+        setSubmissionStatus('success');
+        localStorage.setItem('lastSubmissionTime', now.toString());
+      } catch (error) {
+        // Handle failures gracefully
+        setSubmissionStatus('error');
+      }
+
+      // Step 2: Open WhatsApp (whether sheets succeeded or not)
+      window.open(whatsappUrl, '_blank');
     }
   };
+
+  const isSubmitting = submissionStatus === 'submitting';
+  const isSubmitted = submissionStatus === 'success' || submissionStatus === 'error';
 
   return (
     <section id="lead-generation" className="py-24 bg-black relative overflow-hidden">
@@ -68,15 +98,32 @@ const LeadGeneration = () => {
               >
                 <CheckCircle2 className="text-gold-500 w-20 h-20 mb-6" />
                 <h3 className="text-3xl font-display font-black uppercase tracking-tight mb-4">Pass Claimed!</h3>
-                <p className="text-gray-300">
-                  Thank you, {formData.name}. Our team will contact you shortly at {formData.phone} to schedule your first visit.
-                </p>
+                {submissionStatus === 'success' ? (
+                  <p className="text-gray-300">
+                    Thank you, {formData.name}. Our team will contact you shortly at {formData.phone} to schedule your first visit.
+                  </p>
+                ) : (
+                  <p className="text-gray-300">
+                    We received your request. Please continue on WhatsApp to schedule your first visit.
+                  </p>
+                )}
               </motion.div>
             ) : (
               <>
                 <h3 className="text-2xl font-bold uppercase tracking-wide mb-8">Claim Your Free Pass</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot field - hidden from users but visible to bots */}
+                  <input 
+                    type="text" 
+                    name="botField" 
+                    value={formData.botField} 
+                    onChange={(e) => setFormData({...formData, botField: e.target.value})} 
+                    className="hidden" 
+                    tabIndex="-1" 
+                    autoComplete="off" 
+                  />
+
                   <div>
                     <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Full Name</label>
                     <input 
@@ -145,3 +192,4 @@ const LeadGeneration = () => {
 };
 
 export default LeadGeneration;
+
