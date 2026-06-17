@@ -4,17 +4,30 @@ import { CheckCircle2 } from 'lucide-react';
 
 const LeadGeneration = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', goal: 'Weight Loss' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.name && formData.phone) {
-      setIsSubmitted(true);
+      setIsSubmitting(true);
+      
+      // Target WhatsApp number (Update this to the gym's actual number)
+      const targetPhone = "919876543210"; 
+      const message = `*New VIP Pass Request!* 🚀\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone}\n*Primary Goal:* ${formData.goal}\n\nI would like to claim my free VIP pass and trial session.`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodedMessage}`;
+
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        window.open(whatsappUrl, '_blank');
+      }, 800);
     }
   };
 
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
+    <section id="lead-generation" className="py-24 bg-black relative overflow-hidden">
       <div className="absolute inset-0 bg-gold-500/5 blur-[100px] rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 pointer-events-none"></div>
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -104,9 +117,17 @@ const LeadGeneration = () => {
 
                   <button 
                     type="submit"
-                    className="w-full bg-gold-500 hover:bg-gold-600 text-black font-bold uppercase tracking-wider py-4 rounded-lg transition-colors mt-4"
+                    disabled={isSubmitting}
+                    className="w-full bg-gold-500 hover:bg-gold-600 text-black font-bold uppercase tracking-wider py-4 rounded-lg transition-colors mt-4 disabled:opacity-70 flex items-center justify-center gap-2"
                   >
-                    Get My VIP Pass
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                        Processing...
+                      </>
+                    ) : (
+                      "Claim VIP Pass via WhatsApp"
+                    )}
                   </button>
                   
                   <p className="text-xs text-gray-500 text-center mt-4">

@@ -93,8 +93,11 @@ const MembershipPlans = () => {
                 ))}
               </div>
 
-              <button className={`w-full py-4 rounded-sm font-bold uppercase tracking-wider transition-all duration-300 ${plan.recommended ? 'bg-gold-500 text-black hover:bg-gold-600' : 'bg-transparent border border-white/20 text-white hover:bg-white/5'}`}>
-                Choose {plan.name}
+              <button 
+                onClick={() => document.getElementById('lead-generation')?.scrollIntoView({ behavior: 'smooth' })}
+                className={`w-full py-4 rounded-sm font-bold uppercase tracking-wider transition-all duration-300 ${plan.recommended ? 'bg-gold-500 text-black hover:bg-gold-600 shadow-[0_5px_15px_rgba(212,175,55,0.3)]' : 'bg-transparent border border-white/20 text-white hover:bg-white/5'}`}
+              >
+                Start Your Journey
               </button>
             </motion.div>
           ))}

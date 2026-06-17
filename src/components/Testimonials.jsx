@@ -31,15 +31,17 @@ const Testimonials = () => {
     <section className="py-24 bg-dark-900 relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4">
-            Member <span className="text-gold-500">Reviews</span>
+          <h2 className="text-4xl md:text-5xl font-display font-black uppercase tracking-tight mb-4">
+            Trusted by <span className="text-gold-500">500+ Members</span>
           </h2>
-          <div className="flex justify-center items-center gap-2 mb-4">
-            <span className="text-2xl font-bold">4.9/5</span>
-            <div className="flex text-gold-500">
-              {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" size={20} />)}
+          <div className="flex justify-center items-center gap-3 mb-4 bg-dark-800 inline-flex px-6 py-3 rounded-full border border-white/10">
+            <span className="text-3xl font-black">4.8</span>
+            <div className="flex flex-col items-start">
+              <div className="flex text-gold-500 mb-1">
+                {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" size={16} />)}
+              </div>
+              <span className="text-xs text-gray-400 font-bold tracking-widest uppercase">Based on 500+ Google Reviews</span>
             </div>
-            <span className="text-gray-400">on Google</span>
           </div>
         </div>
 
@@ -51,19 +53,25 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-black p-8 rounded-2xl border border-white/5 relative"
+              className="bg-black p-8 rounded-2xl border border-white/10 relative shadow-2xl hover:border-gold-500/30 transition-colors"
             >
-              <div className="flex text-gold-500 mb-6">
-                {[...Array(test.rating)].map((_, i) => <Star key={i} fill="currentColor" size={16} />)}
-              </div>
-              <p className="text-gray-300 mb-8 italic">"{test.content}"</p>
-              <div className="flex items-center gap-4">
-                <img src={test.image} alt={test.name} className="w-12 h-12 rounded-full object-cover border-2 border-gold-500" />
-                <div>
-                  <h4 className="font-bold uppercase tracking-wide text-sm">{test.name}</h4>
-                  <p className="text-xs text-gray-500 uppercase tracking-widest">{test.role}</p>
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-4">
+                  <img src={test.image} alt={test.name} className="w-12 h-12 rounded-full object-cover" />
+                  <div>
+                    <h4 className="font-bold text-sm">{test.name}</h4>
+                    <p className="text-xs text-gray-500">{test.role}</p>
+                  </div>
+                </div>
+                {/* Fake Google G icon */}
+                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-blue-600 text-lg">
+                  G
                 </div>
               </div>
+              <div className="flex text-gold-500 mb-4">
+                {[...Array(test.rating)].map((_, i) => <Star key={i} fill="currentColor" size={14} />)}
+              </div>
+              <p className="text-gray-300 text-sm leading-relaxed">"{test.content}"</p>
             </motion.div>
           ))}
         </div>

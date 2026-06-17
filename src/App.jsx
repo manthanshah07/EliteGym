@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TrustSection from './components/TrustSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import GymShowcase from './components/GymShowcase';
 import TransformationStories from './components/TransformationStories';
@@ -11,9 +12,11 @@ import Testimonials from './components/Testimonials';
 import InstagramSection from './components/InstagramSection';
 import FAQ from './components/FAQ';
 import LeadGeneration from './components/LeadGeneration';
+import LocationSection from './components/LocationSection';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import MobileStickyBar from './components/MobileStickyBar';
 
 function App() {
   const [showExitPopup, setShowExitPopup] = useState(false);
@@ -35,6 +38,7 @@ function App() {
     <div className="bg-black min-h-screen text-white font-sans overflow-x-hidden">
       <Navbar />
       <Hero />
+      <TrustSection />
       <WhyChooseUs />
       <GymShowcase />
       <TransformationStories />
@@ -45,9 +49,11 @@ function App() {
       <InstagramSection />
       <FAQ />
       <LeadGeneration />
+      <LocationSection />
       <Footer />
       
       <FloatingWhatsApp />
+      <MobileStickyBar />
       {showExitPopup && <ExitIntentPopup onClose={() => setShowExitPopup(false)} />}
     </div>
   );

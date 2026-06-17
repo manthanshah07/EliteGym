@@ -5,19 +5,27 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const stories = [
   {
     name: 'Marcus T.',
-    duration: '6 Months',
-    weightChange: '-15kg Weight Loss',
+    duration: '12 Weeks',
+    weightChange: 'Lost 15kg Fat',
     story: 'ApexFit completely changed my perspective on fitness. The personalized coaching and nutrition plan made all the difference. I not only lost weight but gained incredible strength and confidence.',
     beforeImg: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop',
     afterImg: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop'
   },
   {
     name: 'Sarah M.',
-    duration: '12 Months',
-    weightChange: '+8kg Muscle Gain',
+    duration: '16 Weeks',
+    weightChange: 'Gained 8kg Muscle',
     story: 'As a beginner, I was intimidated by the gym. The trainers here created a welcoming environment and a structured plan that helped me build muscle and transform my physique beyond my expectations.',
     beforeImg: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop',
     afterImg: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2070&auto=format&fit=crop'
+  },
+  {
+    name: 'David L.',
+    duration: '10 Weeks',
+    weightChange: 'Lost 10kg Fat',
+    story: 'The functional training zone and group classes kept me motivated. I dropped 10kg of stubborn fat and finally feel energetic throughout the day.',
+    beforeImg: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop',
+    afterImg: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070&auto=format&fit=crop'
   }
 ];
 

@@ -40,8 +40,11 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <button className="bg-gold-500 hover:bg-gold-600 text-black px-6 py-2.5 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 uppercase text-sm tracking-wider">
-            Join Now
+          <button 
+            onClick={() => document.getElementById('lead-generation')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-gold-500 hover:bg-gold-600 text-black px-6 py-2.5 rounded-sm font-bold transition-all duration-300 transform hover:scale-105 uppercase text-xs tracking-wider shadow-[0_4px_14px_rgba(212,175,55,0.25)]"
+          >
+            Claim Free Trial
           </button>
         </div>
 
@@ -71,8 +74,14 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <button className="bg-gold-500 hover:bg-gold-600 text-black px-6 py-3 rounded-sm font-bold w-full uppercase tracking-wider">
-                Join Now
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document.getElementById('lead-generation')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-gold-500 hover:bg-gold-600 text-black px-6 py-4 rounded-sm font-black w-full uppercase tracking-wider text-sm shadow-lg"
+              >
+                Claim Your Free Trial
               </button>
             </div>
           </motion.div>

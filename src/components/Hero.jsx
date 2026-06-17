@@ -37,11 +37,17 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-gold-500 hover:bg-gold-600 text-black px-8 py-4 rounded-sm font-bold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2 uppercase tracking-wider text-sm">
-              Book Free Trial <ChevronRight className="w-5 h-5" />
+            <button 
+              onClick={() => document.getElementById('lead-generation')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-gold-500 hover:bg-gold-600 text-black px-8 py-4 rounded-sm font-bold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2 uppercase tracking-wider text-sm"
+            >
+              Claim Your Free Trial Session <ChevronRight className="w-5 h-5" />
             </button>
-            <button className="bg-transparent border border-white/30 hover:border-white text-white px-8 py-4 rounded-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 hover:bg-white/5 uppercase tracking-wider text-sm">
-              <Play className="w-5 h-5" /> Watch Video
+            <button 
+              onClick={() => document.getElementById('membership')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-transparent border border-white/30 hover:border-white text-white px-8 py-4 rounded-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 hover:bg-white/5 uppercase tracking-wider text-sm"
+            >
+              Start Your Fitness Journey Today
             </button>
           </div>
         </motion.div>
